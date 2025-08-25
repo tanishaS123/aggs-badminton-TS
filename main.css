@@ -26,12 +26,12 @@ nav {
   align-items: center;
   background-color: black;
   color: white;
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 4rem;
 }
 
 nav .logo .school {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 
 nav .logo .club {
@@ -40,7 +40,7 @@ nav .logo .club {
 }
 
 nav .nav-links a {
-  margin-left: 20px;
+  margin-left: 35px;
   text-decoration: none;
   color: white;
   font-weight: bold;
@@ -76,7 +76,7 @@ header .hero-text h2 {
 }
 
 header .hero-text h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: bold;
   margin: 0;
 }

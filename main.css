@@ -7,18 +7,36 @@ body {
 }
 
 .side-icons {
-  position: fixed;
-  top: 30%;
-  left: 10px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: center; /* centers icons horizontally */
+  gap: 20px; /* spacing between icons */
+  background-color: black;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  position: fixed;        /* keeps it always visible on the left */
+  top: 50%;               /* positions it halfway down the screen */
+  left: 0;                /* sticks it to the left edge */
+  transform: translateY(-50%);  /* centers vertically */
+  gap: 10px;              /* space between icons */
+  padding: 10px;
+}
+
+.side-icons a {
+  display: inline-block;
 }
 
 .side-icons img {
-  width: 30px;
-  height: 30px;
+  width: 40px;  /* adjust size as needed */
+  height: 40px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
 }
+
+.side-icons img:hover {
+  transform: scale(1.1); /* zoom effect on hover */
+  opacity: 0.8; /* slight fade */
+}
+
 
 nav {
   display: flex;

@@ -39,27 +39,14 @@ body {
   opacity: 0.8; /* slight fade */
 }
 
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.85); /* black with 90% opacity */
-  color: white;
-  padding: 0.3rem 4rem;
-  font-size: 1.5rem;
-  line-height: 1.0;
-  height: 70px;
-  position: relative;
-  z-index: 1000;      /* ensures it's above footer */
-}
-
 .logo img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%); /* vertically center */
   height: 146px;  /* bigger than navbar */
   width: auto;
+  max-width: 100%;
+  transition: height 0.3s ease;
 }
 
 nav .nav-links a {
@@ -95,7 +82,7 @@ header .hero {
 header .hero-text {
   position: absolute;
   top: 50%; /* perfectly centered vertically */
-  left: 50%;
+  left: calc(50% + 40px); /* shift right by half the side-icons width (approx) */
   transform: translate(-50%, -50%);
   text-align: center;
   color: black;  /* black text */
@@ -104,14 +91,14 @@ header .hero-text {
 }
 
 header .hero-text h2 {
-  font-size: 3rem;
+  font-size: 3.5vw; /* scales with viewport width */
   font-weight: bold; /* make bold */
   margin: 0;
   font-family: cursive;
 }
 
 header .hero-text h1 {
-  font-size: 4rem;
+  font-size: 5vw; /* scales with viewport width */
   font-weight: bold; /* make bold */
   margin: 0;
 }
@@ -132,18 +119,23 @@ header::after {
   justify-content: space-around;
   padding: 2rem;
   margin-left: 82px;
-  background: linear-gradient(to bottom, white, #d3f5f8);
+  flex-wrap: wrap; /* allows wrapping if needed */
+  gap: 2rem; /* spacing between cards */
+  background: linear-gradient(to bottom, white, #addee0);
 }
 
 .info-card {
   max-width: 300px;
   text-align: center;
+  flex: 1 1 300px; /* allows cards to shrink/grow */
 }
 
 .info-card img {
-  width: 100%;
-  height: auto;
-  border: 2px solid black;
+  width: 100%;          /* full width of card */
+  height: 302px;        /* fixed height for all images */
+  object-fit: cover;    /* crop if necessary to fill container */
+  border: 3px solid black; /* black border */
+  display: block;
 }
 
 .info-card h3 {
@@ -182,12 +174,14 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.85); /* black with 90% opacity */
   color: white;
-  padding: 1rem 4rem;
+  padding: 0.3rem 4rem;
   font-size: 1.5rem;
-  line-height: 1.2;
+  line-height: 1.0;
+  height: 70px;
   position: relative;
+  z-index: 1000;      /* ensures it's above footer */
 }
 
 .nav-links {
@@ -230,11 +224,19 @@ nav .nav-links a:hover {
   transition: all 0.3s ease;
 }
 
+/* Large screens (default) */
+header .hero-text h2 { font-size: 3rem; }
+header .hero-text h1 { font-size: 4rem; }
+
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 900px) {
   nav {
       padding: 1rem 2rem;
   }
+
+  header .hero-text h2 { font-size: 2.2rem; }
+
+  header .hero-text h1 { font-size: 3rem; }
   
   .nav-links {
       position: absolute;
@@ -263,7 +265,24 @@ nav .nav-links a:hover {
       width: 100%;
       display: block;
   }
-  
+
+  .logo img {
+    height: 120px;
+  }
+
+  .info-section {
+    flex-direction: column; /* stack vertically */
+    align-items: center;    /* center cards */
+    margin-left: 0;         /* remove left margin for small screens */
+    padding: 1rem;
+  }
+
+  .info-card {
+    width: 90%;  /* make cards nearly full width */
+    max-width: 400px; /* optional limit */
+    margin-bottom: 1.5rem;
+  }
+
   .burger {
       display: flex;
   }
@@ -286,6 +305,10 @@ nav .nav-links a:hover {
   nav {
       padding: 1rem;
   }
+
+  header .hero-text h2 { font-size: 1.5rem; }
+
+  header .hero-text h1 { font-size: 2rem; }
   
   nav .logo .school {
       font-size: 1.7rem;
@@ -298,4 +321,19 @@ nav .nav-links a:hover {
   .nav-links {
       width: 100%;
   }
+
+  .logo img {
+    height: 90px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .logo img {
+    height: 70px;
+  }
+
+  header .hero-text h2 { font-size: 1.2rem; }
+
+  header .hero-text h1 { font-size: 1.6rem; }
+
 }

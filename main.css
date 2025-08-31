@@ -4,6 +4,8 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #f9f9f9;
   color: #000000;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .side-icons {
@@ -13,11 +15,11 @@ body {
   flex-direction: column-reverse;
   align-items: flex-start;
   position: fixed;        /* keeps it always visible on the left */
-  top: 0;               /* positions it halfway down the screen */
+  top: 50%;               /* positions it halfway down the screen */
   left: 0;                /* sticks it to the left edge */
   width: 80px;
   height: 100vh;           /* full height of the screen */
-  transform: translateY(-0%);  /* centers vertically */
+  transform: translateY(-50%);  /* centers vertically */
   gap: 50px;              /* space between icons */
   padding: 1px;
   z-index: 1000;      /* ensures it's above hero */
@@ -65,7 +67,8 @@ nav .nav-links a.active {
 header {
   position: relative;
   height: 400px;
-  overflow: hidden;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 header .hero {
@@ -77,6 +80,7 @@ header .hero {
   opacity: 0.7;
   position: relative;
   z-index: 1;
+  margin: 0; /* removes extra left/right margin */
 }
 
 header .hero-text {
@@ -234,10 +238,38 @@ header .hero-text h1 { font-size: 4rem; }
       padding: 1rem 2rem;
   }
 
-  header .hero-text h2 { font-size: 2.2rem; }
+  header .hero-text h2 { 
+    font-size: 2.2rem; 
+  }
 
-  header .hero-text h1 { font-size: 3rem; }
+  header .hero-text h1 { 
+    font-size: 3rem; 
+  }
   
+  body {
+    padding-bottom: 60px; /* prevent content from being hidden under the footer */
+  }
+
+  .side-icons {
+    position: fixed;       /* stick to viewport */
+    bottom: 0;             /* stay at bottom */
+    left: 0;               /* align to left edge */
+    width: 100%;           /* full width */
+    height: 60px;          /* footer height */
+    display: flex;         /* arrange icons in a row */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;             /* space between icons */
+    background-color: rgba(0, 0, 0, 0.85); /* transparent black bar */
+    z-index: 1000;         /* keep it above other content */
+  }
+
+  .side-icons a img {
+    width: 40px;
+    height: 40px;
+  }
+
   .nav-links {
       position: absolute;
       right: 0;
@@ -279,8 +311,9 @@ header .hero-text h1 { font-size: 4rem; }
 
   .info-card {
     width: 90%;  /* make cards nearly full width */
-    max-width: 400px; /* optional limit */
+    max-width: 300px; /* optional limit */
     margin-bottom: 1.5rem;
+    flex: 1 1 300px; /* allows shrinking/growing */
   }
 
   .burger {

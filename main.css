@@ -1,3 +1,10 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -5,19 +12,20 @@ body {
   background-color: #f9f9f9;
   color: #000000;
   max-width: 100%;
+  height: 100%;
   overflow-x: hidden;
 }
 
 .side-icons {
   display: flex;
   justify-content: center; /* centers icons horizontally */
-  background-color: rgba(0, 0, 0, 0.90); /* black with 90% opacity */
+  background-color: rgba(0, 0, 0, 0.80); /* black with 90% opacity */
   flex-direction: column-reverse;
   align-items: flex-start;
   position: fixed;        /* keeps it always visible on the left */
   top: 50%;               /* positions it halfway down the screen */
   left: 0;                /* sticks it to the left edge */
-  width: 80px;
+  width: 79px;
   height: 100vh;           /* full height of the screen */
   transform: translateY(-50%);  /* centers vertically */
   gap: 50px;              /* space between icons */
@@ -44,8 +52,9 @@ body {
 .logo img {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); /* vertically center */
-  height: 146px;  /* bigger than navbar */
+  left: 85px;                /* shift right 20px */
+  transform: translateY(-47%); /* vertically center */
+  height: 137px;  /* bigger than navbar */
   width: auto;
   max-width: 100%;
   transition: height 0.3s ease;
@@ -144,7 +153,7 @@ header::after {
 
 .info-card h3 {
   margin: 0.5rem 0;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
 }
 
 .info-card p {
@@ -171,61 +180,66 @@ footer .footer-icons img {
   margin: 0 10px;
   filter: invert(1); /* makes white icons show on dark footer */
 }
-/* navbar.css - Responsive Navigation Styles */
 
 /* Navigation Styles */
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.85); /* black with 90% opacity */
-  color: white;
-  padding: 0.3rem 4rem;
-  font-size: 1.5rem;
-  line-height: 1.0;
-  height: 70px;
-  position: relative;
-  z-index: 1000;      /* ensures it's above footer */
+  display: flex;  /* arranges logo and links side by side */
+  justify-content: space-between; /* pushes logo left, links right */
+  align-items: center; /* vertically centers items */
+  background-color: rgba(0, 0, 0, 0.90); /* black with 90% opacity (slightly see-through) */
+  color: white; /* default text color */
+  padding: 0.3rem 4rem; /* spacing inside navbar (top/bottom, left/right) */
+  font-size: 1.5rem; /* base font size for nav items */
+  line-height: 1.0; /* tighter line spacing */
+  height: 70px; /* fixed navbar height */
+  position: relative; 
+  z-index: 1000; /* ensures nav stays above footer or other content */
 }
 
+/* Navigation Links */
 .nav-links {
-  display: flex;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  display: flex; /* arranges links in a row */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* smooth animation for mobile menu */
 }
 
+/* Individual link styles */
 nav .nav-links a {
-  margin-left: 35px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
+  margin-left: 35px; /* space between links */
+  text-decoration: none; /* removes underline */
+  color: white; /* default link color */
+  font-weight: bold; /* makes links stand out */
 }
 
+/* Active link style (current page) */
 nav .nav-links a.active {
-  color: #5de1e6;
+  color: #5de1e6; /* highlight color for current page */
 }
 
+/* Hover effect for links */
 nav .nav-links a:hover {
-  color: rgb(169, 243, 235);
+  color: rgb(169, 243, 235); /* lighter blue when hovering */
 }
 
-/* Burger menu - hidden by default */
+/* navbar.css - Responsive Navigation Styles */
+/* Burger Menu (for mobile view) */
 .burger {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 35px;
-  height: 30px;
-  padding: 5px;
-  z-index: 1000;
+  display: none; /* hidden on desktop by default */
+  cursor: pointer; /* pointer cursor to indicate clickable */
+  flex-direction: column; /* arranges burger bars vertically */
+  justify-content: space-around; /* evenly spaces bars */
+  width: 35px; /* burger icon width */
+  height: 30px; /* burger icon height */
+  padding: 5px; /* spacing inside container */
+  z-index: 1000; /* ensures menu icon stays above other content */
 }
 
+/* Individual burger lines */
 .burger div {
-  width: 100%;
-  height: 3px;
-  background-color: #5de1e6;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+  width: 100%; /* full width of burger container */
+  height: 3px; /* thickness of each line */
+  background-color: #5de1e6; /* cyan-colored bars */
+  border-radius: 5px; /* slightly rounded edges */
+  transition: all 0.3s ease; /* smooth animation for open/close */
 }
 
 /* Large screens (default) */
@@ -238,35 +252,44 @@ header .hero-text h1 { font-size: 4rem; }
       padding: 1rem 2rem;
   }
 
+  header .hero-text {
+    position: absolute;
+    top: 50%; /* perfectly centered vertically */
+    left: 50%; /* shift right by half the side-icons width (approx) */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;  /* black text */
+    position: absolute;
+    z-index: 2; /* text stays above overlay */
+  }
+
   header .hero-text h2 { 
-    font-size: 2.2rem; 
+    font-size: 3em; 
   }
 
   header .hero-text h1 { 
-    font-size: 3rem; 
+    font-size: 4.5em; 
   }
   
-  body {
-    padding-bottom: 60px; /* prevent content from being hidden under the footer */
+
+  main {
+    flex: 1; /* pushes footer down */
   }
 
   .side-icons {
-    position: fixed;       /* stick to viewport */
-    bottom: 0;             /* stay at bottom */
-    left: 0;               /* align to left edge */
-    width: 100%;           /* full width */
-    height: 60px;          /* footer height */
-    display: flex;         /* arrange icons in a row */
+    position: static;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;             /* space between icons */
-    background-color: rgba(0, 0, 0, 0.85); /* transparent black bar */
-    z-index: 1000;         /* keep it above other content */
   }
 
   .side-icons a img {
-    width: 40px;
+    width: 50px;
     height: 40px;
   }
 
@@ -299,7 +322,9 @@ header .hero-text h1 { font-size: 4rem; }
   }
 
   .logo img {
-    height: 120px;
+    height: 130px;
+    left: 30px;
+
   }
 
   .info-section {
@@ -310,8 +335,8 @@ header .hero-text h1 { font-size: 4rem; }
   }
 
   .info-card {
-    width: 90%;  /* make cards nearly full width */
-    max-width: 300px; /* optional limit */
+    width: 100%;  /* make cards nearly full width */
+    max-width: 400px; /* optional limit */
     margin-bottom: 1.5rem;
     flex: 1 1 300px; /* allows shrinking/growing */
   }

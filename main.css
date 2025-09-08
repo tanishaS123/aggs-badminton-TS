@@ -248,6 +248,7 @@ header .hero-text h1 { font-size: 4rem; }
 
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 900px) {
+
   nav {
       padding: 1rem 2rem;
   }
@@ -270,7 +271,6 @@ header .hero-text h1 { font-size: 4rem; }
   header .hero-text h1 { 
     font-size: 4.5em; 
   }
-  
 
   main {
     flex: 1; /* pushes footer down */
@@ -336,7 +336,7 @@ header .hero-text h1 { font-size: 4rem; }
 
   .info-card {
     width: 100%;  /* make cards nearly full width */
-    max-width: 400px; /* optional limit */
+    max-width: 300px; /* optional limit */
     margin-bottom: 1.5rem;
     flex: 1 1 300px; /* allows shrinking/growing */
   }
@@ -382,6 +382,13 @@ header .hero-text h1 { font-size: 4rem; }
 
   .logo img {
     height: 90px;
+  }
+
+  .info-card {
+    width: 100%;  /* make cards nearly full width */
+    max-width: 300px; /* optional limit */
+    margin-bottom: 1.5rem;
+    flex: 1 1 300px; /* allows shrinking/growing */
   }
 }
 
